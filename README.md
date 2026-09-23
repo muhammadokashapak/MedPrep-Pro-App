@@ -1,72 +1,124 @@
-# 🩺 MedPrep Pro — Global Medical Board Examination Platform
+# 🩺 MedPrep Pro — Serverless Medical Board Prep Engine & Cloud Testing Hub
 
-> **MedPrep Pro** is an advanced, high-performance medical exam preparation web application designed for medical candidates preparing for international licensing and residency board examinations including **FCPS Part 1 (Pakistan)**, **USMLE Step 1 & Step 2 CK (USA)**, **PLAB 1 / UKMLA (UK)**, **NEET PG / INI-CET (India)**, and **MRCS Part A (Surgery)**.
+<div align="center">
 
----
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-5.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Neon](https://img.shields.io/badge/Neon-Serverless%20Postgres-00E599?style=for-the-badge&logo=postgresql&logoColor=black)](https://neon.tech)
+[![Capacitor](https://img.shields.io/badge/Capacitor-Mobile%20Ready-119EFF?style=for-the-badge&logo=capacitor&logoColor=white)](https://capacitorjs.com)
+[![License](https://img.shields.io/badge/License-MIT-emerald?style=for-the-badge)](LICENSE)
+[![Author](https://img.shields.io/badge/Author-Muhammad%20Okasha-blueviolet?style=for-the-badge)](https://github.com/muhammadokashapak)
 
-## 🌟 Key Features
+<p align="center">
+  <strong>Comprehensive Medical Licensing Examination Platform (USMLE Step 1, FCPS Part 1, PLAB, AMC) Powered by Serverless Cloud Architecture</strong>
+</p>
 
-### 1. 📱 Mobile-First Touch & Responsive Interface
-- **Mobile Bottom Navigation Bar**: Floating glassmorphism tab switcher for handheld mobile devices.
-- **Sticky Exam Engine Footer**: Touch-optimized action bar with large target controls (`Prev`, `Mark for Review`, `Next/Finish`).
-- **Touch Choice Cards**: High-contrast A-E option selection with touch feedback and visual badges.
-
-### 2. 📊 Visual Performance Analytics & Graphs
-- **Accuracy Trend Line & Bar Chart**: Visual progress tracking across recent practice tests.
-- **Subject Mastery Breakdown**: Real-time accuracy metrics across Pathology, Pharmacology, Anatomy, Physiology, Surgery, and Clinical Medicine.
-- **Daily Target Ring Gauge**: Interactive daily target tracker with customizable goals (20, 35, 50, 75, or 100 MCQs/day).
-
-### 3. ⚖️ Multi-Exam Track Comparison Hub
-- **Side-by-Side Readiness Scores**: Compare accuracy, QBank coverage percentage, and pass probability across 6 international medical board tracks.
-- **Detailed Board Comparison Matrix**: Benchmark progress across FCPS, USMLE, PLAB, NEET PG, and MRCS.
-
-### 4. 🏆 Gamified Candidate Rank & Milestones
-- **Level & XP System**: Earn 10 XP per question solved + 50 XP per passed mock exam.
-- **Unlocked Milestones**: Earn badges such as *First Step Doctor*, *Dedicated Scholar*, *Century Master*, *Precision Specialist*, and *Medical Fellow*.
+[📖 Overview](#-overview) •
+[🏛️ Cloud Architecture](#-cloud-architecture) •
+[✨ Core Capabilities](#-core-capabilities) •
+[📂 Directory Structure](#-directory-structure) •
+[🚀 Quickstart](#-quickstart--configuration) •
+[👨‍💻 Author](#-author--connect)
 
 ---
 
-## 🛠️ Technology Stack
+</div>
 
-- **Frontend**: React 18, Vite 5, JavaScript (ES2023)
-- **Styling**: Vanilla CSS3, Glassmorphism, CSS Custom Properties, FontAwesome 6 Icons
-- **State & Storage**: React Hooks, `localStorage` with SHA-256 password hashing security
-- **Effects & UI**: Canvas Confetti, Custom SVG Charts
+## 📖 Overview
 
----
+**MedPrep Pro** is an enterprise medical examination preparation platform tailored for physicians preparing for global licensing and residency entry boards including **USMLE Step 1 & 2CK**, **FCPS Part 1**, **PLAB/UKMLA**, and **AMC**.
 
-## 🚀 Getting Started
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v16.0 or higher)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/muhammadokashapak/medprep.git
-   cd medprep
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the local development server**:
-   ```bash
-   npm run dev -- --host
-   ```
-   Open `http://localhost:3000/` or `http://<your-ip>:3000/` on your mobile device.
-
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
+Featuring a hybrid **Serverless Cloud Architecture** backed by **Neon PostgreSQL** and client-side offline fallbacks via **Capacitor**, the application allows candidates to access tens of thousands of peer-reviewed clinical vignettes, high-yield spaced repetition flashcards, and personalized performance telemetry across all devices.
 
 ---
 
-## 📜 License
+## 🏛️ Cloud Architecture
 
-Created with ❤️ for medical candidates worldwide by **Muhammad Okasha**.
+```mermaid
+graph TD
+    subgraph Client Layer
+        M[Mobile Device - Android/iOS via Capacitor] --> APP[React 18 Single-Page Application]
+        W[Desktop Web Browser] --> APP
+    end
+
+    subgraph Data Pipeline & Storage
+        APP --> CACHE[(Local SQLite / IndexedDB Offline Storage)]
+        APP -->|Secure Serverless Queries| NEON[(Neon Serverless PostgreSQL Database)]
+        NEON --> QB[Question Bank & Clinical Vignette Repositories]
+        NEON --> USR[User Progression, Badges & Historical Telemetry]
+    end
+
+    subgraph Intelligence & Scripts
+        OCR[Document OCR Ingestion Scripts] --> AI[Gemini / AI Question Formatter]
+        AI --> NEON
+    end
+```
+
+---
+
+## ✨ Core Capabilities
+
+- 🌐 **Global Multi-Board Compatibility:** Modular question banks for FCPS, USMLE, PLAB, and national licensing boards.
+- ⚡ **Serverless PostgreSQL Database:** Instant auto-scaling query infrastructure powered by Neon DB with near-zero cold starts.
+- 📴 **Dual Offline/Online Operation:** Automatically caches active question sets locally, allowing uninterrupted study on hospital rounds or during travel.
+- 🔄 **Spaced Repetition Flashcards (SRS):** Built-in Leitner-style active recall cards for rapid pharmacology drug mechanisms, microbiology algorithms, and clinical pearls.
+- 📈 **Telemetry & Diagnostics:** Real-time percentile scoring against candidate cohorts with granular breakdown by clinical organ system.
+
+---
+
+## 📂 Directory Structure
+
+```
+MedPrep-Pro-App/
+│
+├── android/                   # Native Android Studio project & Gradle bindings
+├── books/                     # Reference syllabus textbooks & ingestion sources
+├── database/                  # SQL schema migrations & seed datasets
+├── scripts/                   # Automated MCQ generation & formatting scripts
+├── src/                       # React 18 application source code
+│   ├── components/            # Exam modals, timers, question cards
+│   ├── services/              # Neon database client & offline synchronization
+│   ├── App.jsx                # Application root router
+│   └── index.css              # Custom medical UI styling
+├── capacitor.config.json      # Mobile deployment specifications
+├── package.json               # Node.js dependencies
+└── README.md                  # VIP Master Architecture Documentation
+```
+
+---
+
+## 🚀 Quickstart & Configuration
+
+### 1. Installation
+```bash
+git clone https://github.com/muhammadokashapak/MedPrep-Pro-App.git
+cd MedPrep-Pro-App
+
+npm install
+```
+
+### 2. Configure Environment Variables
+Create a `.env` file in the project root:
+```env
+VITE_NEON_DATABASE_URL=postgresql://user:password@ep-sample.us-east-2.aws.neon.tech/medprep?sslmode=require
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 3. Launch Development Server
+```bash
+npm run dev
+```
+
+---
+
+## 👨‍💻 Author & Connect
+
+**Muhammad Okasha**  
+*AI & Medical Technology Software Architect*  
+- **GitHub:** [@muhammadokashapak](https://github.com/muhammadokashapak)
+- **Repository:** [MedPrep-Pro-App](https://github.com/muhammadokashapak/MedPrep-Pro-App)
+
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
